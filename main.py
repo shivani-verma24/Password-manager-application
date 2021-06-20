@@ -58,18 +58,17 @@ def save():
         if confimation:
             try:
                 with open("data.json", "r") as data_file:
-                    data = json.load(data_file)                     # Reading old data
+                    data = json.load(data_file)                  
 
             except FileNotFoundError:
-                with open("data.json", "w") as data_file:      # creating new file if not exist & adding data
+                with open("data.json", "w") as data_file:      
                     json.dump(new_data, data_file, indent=4)
             else:
-                data.update(new_data)                              # Updating old data with new data
+                data.update(new_data)                             
                 with open("data.json", "w") as data_file:
-                    json.dump(data, data_file, indent=4)           # Saving(writing) updated data
+                    json.dump(data, data_file, indent=4)           
 
             finally:
-                # after entering info, empty page entries
 
                 website_entry.delete(0, END)
                 email_entry.delete(0, END)
